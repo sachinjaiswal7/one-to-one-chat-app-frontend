@@ -1,0 +1,382 @@
+$for-chat : rgba(83, 230, 201, 0.306);
+$for-html-back : rgba(10, 117, 95, 0.726);
+$my-detail-back : #202123;
+$side-bar-back : #E0FFFF;
+$right-side-chat-color : rgba(254, 117, 67, 0.687);
+$left-side-chat-color : white;
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'EB Garamond', serif;
+}
+input {
+    &:focus{
+        border: none;
+        outline: none;
+    }
+
+}
+svg{
+    cursor: pointer;
+    font-size: 20px;
+}
+button{
+    cursor: pointer;
+}
+img{
+    border-radius: 50%;
+    object-fit: cover;
+}
+#root{
+    background-color: $for-html-back;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app{
+    height: 70%;
+    width: 70%;
+    display: flex;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.side-bar{
+    height: 100%;
+    width: 300px;
+    background-color: $side-bar-back;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    >input{
+        padding: 0 10px;
+        border-bottom: 0.1px solid black;
+    }
+}
+
+.my-detail-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    background-color: $my-detail-back;
+    color: white;
+    border-top-left-radius:10px ;
+    box-sizing: border-box;
+}
+.my-detail-section-right-part{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    >img{
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    >p{
+    overflow: hidden; // Hide any overflowing content
+    white-space: nowrap; // Prevent text from wrapping
+    text-overflow: ellipsis; // Show ellipsis when text overflows
+    }
+}
+
+.search{
+    display: flex;
+    padding: 0 5px;
+    width: 100%;
+    align-items: center;
+    >input{
+    background-color:transparent;
+    border: none;
+    height: 30px;
+    flex: 1;
+    }
+    
+}
+
+.whole-friend{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.one-friend{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+
+
+    >img{
+        border-radius:50% ;
+        height: 50px;
+        width: 50px;
+        margin: 5px;
+        object-fit: cover;
+
+    }
+    >div{
+        margin-left: 5px;
+        width: 150px;
+      
+       
+    }
+    &:hover{
+        background-color: $my-detail-back;
+        color: white;
+        cursor: pointer;
+    }
+    
+  
+    
+}
+.one-friend-on-click  {
+    background-color: $my-detail-back;
+    color: white;
+}
+.friend-chat{
+    overflow: hidden; // Hide any overflowing content
+    white-space: nowrap; // Prevent text from wrapping
+    text-overflow: ellipsis; // Show ellipsis when text overflows
+    // width: 150px;
+    opacity: 0.5;
+}
+.friend-name{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+
+
+// css for main-bar-container
+.main-bar-container{
+    width:700px ;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+
+//css for main-bar's top div 
+.main-bar-top{
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    color: white;
+    // height: 5;
+    box-sizing: border-box;
+    >div{
+        flex: 1;
+    }
+    >svg{
+        margin: 0 5px;
+        font-size: 20px;
+    }
+}
+
+//css for main-bar's middle div
+.main-bar-middle{
+    flex: 1;
+    background-color:rgba(255, 127, 80, 0.215);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+}
+//css for main-bar's bottom div
+.main-bar-bottom{
+    width: 100%;
+    display: flex;
+    height: 70px;
+    align-items: center;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 0 10px;
+    column-gap: 10px;
+    >input{
+        flex: 1;
+        height: 100%;
+        border: none;
+        padding: 0 10px;
+        font-size: 15px;
+
+      
+    }
+    >svg{
+        font-size: 20px;
+    }
+    >button{
+        padding: 7px;
+    }
+}
+
+
+
+
+// cass for one-message component starts from here 
+.one-message{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.one-message-left-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    >img{
+        width: 40px;
+        height: 40px;
+    }
+}
+.one-message-right-side{
+    background-color: $left-side-chat-color;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.one-message-counter{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 10px;
+    
+}
+.one-message-counter-right-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    >img{
+        width: 40px;
+        height: 40px;
+    }
+}
+.one-message-counter-left-side{
+    background-color: $right-side-chat-color;
+    color: white;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+
+
+
+
+// css for register page 
+.register-container{
+    background-color: white;
+    min-width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    gap: 10px;
+   .style-input{
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    font-size: 17px;
+   }
+   >button{
+    padding: 5px;
+    margin: 15px auto;
+   }
+   >span{
+    margin: auto;
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    font-size: 30px;
+   }
+   >div{
+    text-align: center;
+   }
+}
+
+
+
+
+// css for login component 
+.login-container{
+    background-color: white;
+    min-width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    gap: 10px;
+    .style-input{
+        border: none;
+        border-bottom: 1px solid black;
+        padding: 5px;
+        font-size: 17px;
+    }
+    >button{
+        padding: 5px;
+        margin: 15px auto;
+       }
+       >span{
+        margin: auto;
+        color: rgb(0, 0, 0);
+        font-weight: 900;
+        font-size: 30px;
+       }
+       >div{
+        text-align: center;
+       }
+}
+
+
+
+
+
+.processing{
+    width: 200px;
+    height: 30px;
+    color: white;
+    background-color: black;
+    position: fixed;
+    border-radius: 30px;
+    right: 20px;
+    top: 20px;
+    display: none;
+}
+.processing-true{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.empty-div{
+ height: 100%;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ backdrop-filter: blur(5px);
+ box-shadow: inset 0px 4px 159px 3px rgba(0,0,0,0.75);
+
+ >div{
+    font-size: 30px;
+    text-align: center;
+ }
+  
+}
